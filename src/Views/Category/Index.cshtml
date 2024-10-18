@@ -1,0 +1,27 @@
+﻿@using LibraryManagementSystem.Models.Entity
+@model List<CATEGORY>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<h2>Categories</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Category Id</th>
+        <th>Category Name</th>
+        <th>Category Delete</th>
+        <th>Category Update</th>
+    </tr>
+    @foreach(var ctg in Model)
+    {
+         <tr>
+             <td>@ctg.ID</td>
+             <td>@ctg.NAME</td>
+             <td><a href="#" class="btn btn-danger">Delete</a></td>
+             <td><a href="#" class="btn btn-success">Update</a></td>
+         </tr>
+
+     }
+</table>
+<a href="#" class="btn btn-primary">New Category Add</a>

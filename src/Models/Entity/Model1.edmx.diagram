@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b49e832a561749439c2b5af63fa2995d" Name="Diagram1">
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.AUTHOR" Width="1.5" PointX="1.5" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.BOOK" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.CASHBOX" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.CATEGORY" Width="1.5" PointX="1.5" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.LOANS" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.PUNISHMENT" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.STAFF" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.sysdiagrams" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.USER" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="DBKUTUPHANEModel.FK_BOOK_AUTHOR" ManuallyRouted="false" />
+        <AssociationConnector Association="DBKUTUPHANEModel.FK_BOOK_CATEGORY" ManuallyRouted="false" />
+        <AssociationConnector Association="DBKUTUPHANEModel.FK_LOANS_BOOK" ManuallyRouted="false" />
+        <AssociationConnector Association="DBKUTUPHANEModel.FK_LOANS_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="DBKUTUPHANEModel.FK_PUNISHMENT_LOANS" ManuallyRouted="false" />
+        <AssociationConnector Association="DBKUTUPHANEModel.FK_PUNISHMENT_USER" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
