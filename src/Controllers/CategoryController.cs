@@ -15,5 +15,37 @@ namespace LibraryManagementSystem.Controllers
             var values = db.CATEGORY.ToList();
             return View(values);
         }
+        [HttpGet]
+        public ActionResult CategoryAdd()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CategoryAdd(CATEGORY c)
+        {
+            db.CATEGORY.Add(c);
+            db.SaveChanges();
+            return View();
+        }
+
+        public ActionResult CategoryDelete(int id) 
+        {
+            var category = db.CATEGORY.Find(id);
+            db.CATEGORY.Remove(category);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult CategoryGet(int id)
+        {
+            var category = db.CATEGORY.Find(id);
+            return View("CategoryGet",category);
+        }
+        public ActionResult CategoryUpdate(CATEGORY c)
+        {
+            var categoryUpdate = db.CATEGORY.Find(c.ID);
+            categoryUpdate.NAME=c.NAME;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
