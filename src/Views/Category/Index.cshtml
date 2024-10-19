@@ -18,10 +18,10 @@
          <tr>
              <td>@ctg.ID</td>
              <td>@ctg.NAME</td>
-             <td><a href="#" class="btn btn-danger">Delete</a></td>
-             <td><a href="#" class="btn btn-success">Update</a></td>
+             <td><a href="/Category/CategoryDelete/@ctg.ID" class="btn btn-danger">Delete</a></td>
+             <td><a href="/Category/CategoryGet/@ctg.ID" class="btn btn-success">Update</a></td>
          </tr>
 
      }
 </table>
-<a href="#" class="btn btn-primary">New Category Add</a>
+<a href="/Category/CategoryAdd" class="btn btn-primary">New Category Add</a>
