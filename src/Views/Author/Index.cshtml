@@ -23,7 +23,7 @@
             <td>@item.SURNAME</td>
             <td>@item.DETAIL</td>
             <td>@Html.ActionLink("Delete", "AuthorDelete", new {id=item.ID},new {@class="btn btn-danger", onclick= "return confirm('Are you want delete')"})</td>
-            <td><a href="#" class="btn btn-success">UPDATE</a> </td>
+            <td><a href="/Author/AuthorGet/@item.ID" class="btn btn-success">UPDATE</a> </td>
         </tr>
     }
 </table>
