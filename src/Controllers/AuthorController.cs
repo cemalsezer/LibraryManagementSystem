@@ -34,5 +34,19 @@ namespace LibraryManagementSystem.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult AuthorGet(int id)
+        {
+            var author = db.AUTHOR.Find(id);
+            return View("AuthorGet", author);
+        }
+        public ActionResult AuthorUpdate(AUTHOR author)
+        {
+            var authorInfo = db.AUTHOR.Find(author.ID);
+            authorInfo.NAME = author.NAME;
+            authorInfo.SURNAME = author.SURNAME;
+            authorInfo.DETAIL = author.DETAIL;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
