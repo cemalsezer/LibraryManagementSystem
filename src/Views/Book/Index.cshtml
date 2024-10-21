@@ -1,0 +1,41 @@
+﻿@using LibraryManagementSystem.Models.Entity
+@model List<BOOK>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Book Section</h2>
+<div style="margin-top:15px; margin-bottom:15px">
+    <input  type="text" class="form-control" placeholder="Enter search for the book"/>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Book Nme</th>
+        <th>Book's Author</th>
+        <th>Book's Category</th>
+        <th>Book's Publish Date</th>
+        <th>Book's Publisher</th>
+        <th>Book's Page</th>
+        <th>Book's Status</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.NAME</td>
+            <td>@item.AUTHOR1.NAME @item.AUTHOR1.SURNAME</td>
+            <td>@item.CATEGORY1.NAME</td>
+            <td>@item.PUBLISHDATE</td>
+            <td>@item.PUBLISHER</td>
+            <td>@item.PAGE</td>
+            <td>@item.STATUS</td>
+            <td><a href="/Book/BookDelete/@item.ID" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Book/BookUpdate/@item.ID" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+</table>
+<a href="/Book/BookAdd" class="btn btn-primary">New Book Add</a>
