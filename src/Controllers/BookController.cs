@@ -46,5 +46,12 @@ namespace LibraryManagementSystem.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult BookDelete(int id)
+        {
+            var book = db.BOOK.Find(id);
+            db.BOOK.Remove(book);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
