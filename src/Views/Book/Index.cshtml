@@ -6,9 +6,14 @@
 }
 
 <h2>Book Section</h2>
-<div style="margin-top:15px; margin-bottom:15px">
-    <input  type="text" class="form-control" placeholder="Enter search for the book"/>
-</div>
+@using (Html.BeginForm("Index","Book",FormMethod.Get))
+            {
+                <div style="margin-top:15px; margin-bottom:15px">
+                    <b>Search For Book:</b> @Html.TextBox("item");
+                    <input  type="submit" value="Search" />
+                </div>
+            }
+
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
@@ -34,7 +39,7 @@
             <td>@item.PAGE</td>
             <td>@item.STATUS</td>
             <td><a href="/Book/BookDelete/@item.ID" class="btn btn-danger">Delete</a></td>
-            <td><a href="/Book/BookUpdate/@item.ID" class="btn btn-success">Update</a></td>
+            <td><a href="/Book/BookGet/@item.ID" class="btn btn-success">Update</a></td>
         </tr>
     }
 </table>

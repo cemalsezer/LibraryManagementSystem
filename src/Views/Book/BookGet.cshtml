@@ -1,0 +1,47 @@
+﻿@model LibraryManagementSystem.Models.Entity.BOOK
+@{
+    ViewBag.Title = "BookGet";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("BookUpdate", "Book", FormMethod.Post))
+{<div style="margin-bottom:15px"></div>
+ <div class="form-group">
+     <div style="margin-bottom:15px">
+         <label>Book Id</label>
+         @Html.TextBoxFor(a => a.ID, new { @class = "form-control" })
+     </div>
+     <div style="margin-top:15px">
+         <label>Book Name</label>
+         @Html.TextBoxFor(x => x.NAME, new { @class = "form-control" })
+     </div>
+     <div style="margin-bottom:15px">
+         <label>Book's Category</label>
+         @Html.DropDownListFor(x => x.CATEGORY1.ID, (List<SelectListItem>)ViewBag.vl1, new { @class = "form-control" })
+
+     </div>
+     <div style="margin-bottom:15px">
+         <label>Author's Name</label>
+         @Html.DropDownListFor(x => x.AUTHOR1.ID, (List<SelectListItem>)ViewBag.vl2, new { @class = "form-control" })
+
+     </div>
+     <div style="margin-bottom:15px">
+         <label>Publish Date</label>
+         @Html.TextBoxFor(a => a.PUBLISHDATE, new { @class = "form-control" })
+
+     </div>
+     <div style="margin-bottom:15px">
+         <label>Publisher </label>
+         @Html.TextBoxFor(a => a.PUBLISHER, new { @class = "form-control" })
+
+     </div>
+     <div style="margin-bottom:15px">
+         <label>Page</label>
+         @Html.TextBoxFor(a => a.PAGE, new { @class = "form-control" })
+
+     </div>
+
+     <button class="btn btn-warning">Book Update</button>
+ </div>
+}
+
