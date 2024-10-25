@@ -27,5 +27,24 @@ namespace LibraryManagementSystem.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult StaffDelete(int id)
+        {
+            var staff = db.STAFF.Find(id);
+            db.STAFF.Remove(staff);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult StaffGet(int id)
+        {
+            var staff = db.STAFF.Find(id);
+            return View("StaffGet", staff);
+        }
+        public ActionResult StaffUpdate(STAFF c)
+        {
+            var staffUpdate = db.STAFF.Find(c.ID);
+            staffUpdate.NAME = c.NAME;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
