@@ -39,10 +39,10 @@ namespace LibraryManagementSystem.Controllers
             var staff = db.STAFF.Find(id);
             return View("StaffGet", staff);
         }
-        public ActionResult StaffUpdate(STAFF c)
+        public ActionResult StaffUpdate(STAFF s)
         {
-            var staffUpdate = db.STAFF.Find(c.ID);
-            staffUpdate.NAME = c.NAME;
+            var staffUpdate = db.STAFF.Find(s.ID);
+            staffUpdate.NAME = s.NAME;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

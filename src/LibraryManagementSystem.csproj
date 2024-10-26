@@ -260,6 +260,7 @@
     <Content Include="Views\Book\BookGet.cshtml" />
     <Content Include="Views\Staff\Index.cshtml" />
     <Content Include="Views\Staff\StaffAdd.cshtml" />
+    <Content Include="Views\Staff\StaffGet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
