@@ -8,7 +8,9 @@
     <br />
     <div>
         <label>Employee Name</label>
-        <input type="text" class="form-control" name="NAME" />
+        @*<input type="text" class="form-control" name="NAME" />*@
+        @Html.TextBoxFor(x => x.NAME, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.NAME, "", new { @style = "color:red" })
     </div>
     <div style="margin-top:15px">
         <button class="btn btn-info" id="Btn1">Employee Add</button>

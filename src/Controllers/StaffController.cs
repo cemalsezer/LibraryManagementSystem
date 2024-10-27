@@ -23,9 +23,14 @@ namespace LibraryManagementSystem.Controllers
         [HttpPost]
         public ActionResult StaffAdd(STAFF s)
         {
+            if(!ModelState.IsValid)
+            {
+                return View();
+            }
             db.STAFF.Add(s);
             db.SaveChanges();
             return RedirectToAction("Index");
+            //return View();
         }
         public ActionResult StaffDelete(int id)
         {
