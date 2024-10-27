@@ -1,0 +1,41 @@
+﻿@using LibraryManagementSystem.Models.Entity
+@model List<USER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>USER</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>>
+        <th>LASTNAME</th>>
+        <th>EMAIL</th>>
+        <th>USERNAME</th>>
+        <th>PASSWORD</th>>
+        <th>PHONE NUMBER</th>>
+        <th>SCHOOL NAME</th>>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.ID</td>
+            <td>@user.NAME</td>
+            <td>@user.SURNAME</td>
+            <td>@user.EMAIL</td>
+            <td>@user.USERNAME</td>
+            <td>@user.PASSWORD</td>
+            <td>@user.PHONE</td>
+            <td>@user.SCHOOLNAME</td>
+            <td><a href="/User/UserDelete/@user.ID" class="btn btn-danger">Delete</a></td>
+            <td><a href="/User/UserGet/@user.ID" class="btn btn-success">Update</a></td>
+        </tr>
+
+    }
+</table>
+<a href="/User/UserAdd/" class="btn btn-primary">New User Add</a>
