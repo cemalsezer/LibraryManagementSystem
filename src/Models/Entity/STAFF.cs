@@ -11,10 +11,12 @@ namespace LibraryManagementSystem.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class STAFF
     {
         public byte ID { get; set; }
+        [Required(ErrorMessage ="Staff name is required")]
         public string NAME { get; set; }
     }
 }
