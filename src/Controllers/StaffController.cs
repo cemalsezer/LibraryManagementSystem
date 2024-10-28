@@ -25,7 +25,7 @@ namespace LibraryManagementSystem.Controllers
         {
             if(!ModelState.IsValid)
             {
-                return View();
+                return View("StaffAdd");
             }
             db.STAFF.Add(s);
             db.SaveChanges();
