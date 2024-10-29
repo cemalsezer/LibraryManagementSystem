@@ -30,7 +30,6 @@ namespace LibraryManagementSystem.Controllers
             db.STAFF.Add(s);
             db.SaveChanges();
             return RedirectToAction("Index");
-            //return View();
         }
         public ActionResult StaffDelete(int id)
         {
