@@ -1,0 +1,44 @@
+﻿@model LibraryManagementSystem.Models.Entity.USER
+
+@{
+    ViewBag.Title = "UserUpdate";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("UserUpdate", "User", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.ID)
+        @Html.TextBoxFor(C => C.ID, new { @class = "form-control" })
+        <br />
+        <label>Name</label>
+        @Html.TextBoxFor(c => c.NAME, new { @class = "form-control" })
+        <br />
+        <label>Surname</label>
+        @Html.TextBoxFor(c => c.SURNAME, new { @class = "form-control" })
+        <br />
+        <label>EMAIL</label>
+        @Html.TextBoxFor(c => c.EMAIL, new { @class = "form-control" })
+        <br />
+        <label>Username</label>
+        @Html.TextBoxFor(c => c.USERNAME, new { @class = "form-control" })
+        <br />
+        <label>Password</label>
+        @Html.TextBoxFor(c => c.PASSWORD, new { @class = "form-control" })
+        <br />
+        <label>Image</label>
+        @Html.TextBoxFor(c => c.IMAGE, new { @class = "form-control" })
+        <br />
+        <label>Phone</label>
+        @Html.TextBoxFor(c => c.PHONE, new { @class = "form-control" })
+        <br />
+        <label>Schoolname</label>
+        @Html.TextBoxFor(c => c.SCHOOLNAME, new { @class = "form-control" })
+        <br />
+    </div>
+    <div>
+        <button class="btn btn-warning">Update</button>
+    </div>
+}

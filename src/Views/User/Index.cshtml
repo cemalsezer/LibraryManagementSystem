@@ -1,5 +1,7 @@
 ﻿@using LibraryManagementSystem.Models.Entity
-@model List<USER>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<USER>
 
 @{
     ViewBag.Title = "Index";
@@ -8,16 +10,16 @@
 
 <h2>USER</h2>
 
-<table class="table table-bordered">
+<table class="table table-bordered">    
     <tr>
         <th>ID</th>
-        <th>NAME</th>>
-        <th>LASTNAME</th>>
-        <th>EMAIL</th>>
-        <th>USERNAME</th>>
-        <th>PASSWORD</th>>
-        <th>PHONE NUMBER</th>>
-        <th>SCHOOL NAME</th>>
+        <th>NAME</th>
+        <th>LASTNAME</th>
+        <th>EMAIL</th>
+        <th>USERNAME</th>
+        <th>PASSWORD</th>
+        <th>PHONE</th>
+        <th>SCHOOL NAME</th>
         <th>DELETE</th>
         <th>UPDATE</th>
     </tr>
@@ -38,4 +40,5 @@
 
     }
 </table>
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index",new {page}))
 <a href="/User/UserAdd/" class="btn btn-primary">New User Add</a>
