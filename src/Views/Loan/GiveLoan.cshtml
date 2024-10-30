@@ -1,0 +1,33 @@
+﻿@model LibraryManagementSystem.Models.Entity.LOANS
+
+@{
+    ViewBag.Title = "GiveLoan";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>User Id</label>
+        @Html.TextBoxFor(x => x.USER, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Book Id</label>
+        @Html.TextBoxFor(x => x.BOOK, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Staff Id</label>
+        @Html.TextBoxFor(x => x.STAFF, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Book Loan Date</label>
+        <input type="text" class="form-control" name="BORROWDATE" value="@DateTime.Now.ToShortDateString()"/>
+    </div>
+    <div style="margin-top:15px">
+        <label>Book Loan EndDate</label>
+        <input type="text" class="form-control" name="DUEDATE" value="@DateTime.Now.AddDays(7).ToShortDateString()"/>
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">GIVE LOAN</button>
+    </div>
+</form>

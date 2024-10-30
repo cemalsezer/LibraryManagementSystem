@@ -1,0 +1,31 @@
+﻿@using LibraryManagementSystem.Models.Entity
+@model List<LOANS>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<h2>Loan Book List</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Book Nme</th>
+        <th>User</th>
+        <th>Staff</th>
+        <th>Loan Date</th>
+        <th>Duedate</th>
+        <th>Give Loan</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.BOOK1.NAME</td>
+            <td>@item.USER.NAME @item.USER.SURNAME</td>
+            <td>@item.STAFF1.NAME</td>
+            <td>@Convert.ToDateTime(item.BORROWDATE).ToString("dd/MM/yy")</td>
+            <td>@Convert.ToDateTime(item.DUEDATE).ToString("dd/MM/yy")</td>
+            <td><a href="/Loan/ReturnLoan/@item.ID" class="btn btn-danger">Return Loan</a></td>
+
+        </tr>
+    }
+</table>
