@@ -11,8 +11,7 @@ namespace LibraryManagementSystem.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class USER
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,13 +22,10 @@ namespace LibraryManagementSystem.Models.Entity
         }
     
         public int ID { get; set; }
-        [Required(ErrorMessage ="Name is required")]
-        [StringLength(20,ErrorMessage ="Max 20 Characters")]
         public string NAME { get; set; }
         public string SURNAME { get; set; }
         public string EMAIL { get; set; }
         public string USERNAME { get; set; }
-        [StringLength(10, ErrorMessage = "Max 10 Characters")]
         public string PASSWORD { get; set; }
         public string IMAGE { get; set; }
         public string PHONE { get; set; }

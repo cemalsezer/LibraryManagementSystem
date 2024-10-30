@@ -23,6 +23,7 @@ namespace LibraryManagementSystem.Models.Entity
         public int ID { get; set; }
         public Nullable<int> BOOK { get; set; }
         public Nullable<int> USERINFO { get; set; }
+        public byte STAFF { get; set; }
         public Nullable<System.DateTime> BORROWDATE { get; set; }
         public Nullable<System.DateTime> DUEDATE { get; set; }
     
@@ -30,5 +31,6 @@ namespace LibraryManagementSystem.Models.Entity
         public virtual USER USER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PUNISHMENT> PUNISHMENT { get; set; }
+        public virtual STAFF STAFF1 { get; set; }
     }
 }
