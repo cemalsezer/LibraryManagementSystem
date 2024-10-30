@@ -45,6 +45,10 @@ namespace LibraryManagementSystem.Controllers
         }
         public ActionResult StaffUpdate(STAFF s)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("StaffGet");
+            }
             var staffUpdate = db.STAFF.Find(s.ID);
             staffUpdate.NAME = s.NAME;
             db.SaveChanges();

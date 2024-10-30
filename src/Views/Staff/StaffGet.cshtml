@@ -16,6 +16,8 @@
         <br />
         @Html.LabelFor(c => c.NAME)
         @Html.TextBoxFor(c => c.NAME, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.NAME, "", new { @style = "color:red" })
+
     </div>
     <div>
         <button class="btn btn-warning">Update</button>
