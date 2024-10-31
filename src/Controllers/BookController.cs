@@ -38,10 +38,10 @@ namespace LibraryManagementSystem.Controllers
         [HttpPost]
         public ActionResult BookAdd(BOOK b)
         {
-            var category = db.CATEGORY.Where(c => c.ID == b.CATEGORY1.ID).FirstOrDefault();
-            var author = db.AUTHOR.Where(a=>a.ID == b.AUTHOR1.ID).FirstOrDefault();
-            b.CATEGORY1 = category;
-            b.AUTHOR1 = author;
+            var category = db.CATEGORY.Where(c => c.ID == b.CATEGORY.ID).FirstOrDefault();
+            var author = db.AUTHOR.Where(a=>a.ID == b.AUTHOR.ID).FirstOrDefault();
+            b.CATEGORY = category;
+            b.AUTHOR = author;
             db.BOOK.Add(b);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -79,10 +79,11 @@ namespace LibraryManagementSystem.Controllers
             book.PUBLISHDATE = b.PUBLISHDATE;
             book.PAGE=b.PAGE;
             book.PUBLISHER = b.PUBLISHER;
-            var category = db.CATEGORY.Where(c => c.ID == b.CATEGORY1.ID).FirstOrDefault();
-            var author = db.AUTHOR.Where(a=>a.ID == b.AUTHOR1.ID).FirstOrDefault();
-            book.CATEGORY = category.ID;
-            b.AUTHOR = author.ID;
+            book.STATUS = true;
+            var category = db.CATEGORY.Where(c => c.ID == b.CATEGORY.ID).FirstOrDefault();
+            var author = db.AUTHOR.Where(a=>a.ID == b.AUTHOR.ID).FirstOrDefault();
+            book.CATEGORY = category;
+            b.AUTHOR = author;
             db.SaveChanges();
             return RedirectToAction("Index");
 
