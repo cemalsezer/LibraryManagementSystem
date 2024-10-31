@@ -22,15 +22,15 @@ namespace LibraryManagementSystem.Models.Entity
     
         public int ID { get; set; }
         public string NAME { get; set; }
-        public Nullable<byte> CATEGORY { get; set; }
-        public Nullable<int> AUTHOR { get; set; }
         public string PUBLISHDATE { get; set; }
         public string PUBLISHER { get; set; }
         public string PAGE { get; set; }
         public Nullable<bool> STATUS { get; set; }
+        public Nullable<byte> CATEGORY_ID { get; set; }
+        public Nullable<int> AUTHOR_ID { get; set; }
     
-        public virtual AUTHOR AUTHOR1 { get; set; }
-        public virtual CATEGORY CATEGORY1 { get; set; }
+        public virtual AUTHOR AUTHOR { get; set; }
+        public virtual CATEGORY CATEGORY { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LOANS> LOANS { get; set; }
     }

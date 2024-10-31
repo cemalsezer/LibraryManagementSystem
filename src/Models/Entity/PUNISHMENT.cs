@@ -15,13 +15,13 @@ namespace LibraryManagementSystem.Models.Entity
     public partial class PUNISHMENT
     {
         public int ID { get; set; }
-        public Nullable<int> USERINFO { get; set; }
         public Nullable<System.DateTime> STARTDATE { get; set; }
         public Nullable<System.DateTime> ENDDATE { get; set; }
         public Nullable<decimal> MONEY { get; set; }
-        public Nullable<int> LOANS { get; set; }
+        public Nullable<int> USER_ID { get; set; }
+        public Nullable<int> LOAN_ID { get; set; }
     
-        public virtual LOANS LOANS1 { get; set; }
+        public virtual LOANS LOANS { get; set; }
         public virtual USER USER { get; set; }
     }
 }

@@ -20,8 +20,8 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="varchar" MaxLength="50" />
-          <Property Name="CATEGORY" Type="tinyint" />
-          <Property Name="AUTHOR" Type="int" />
+          <Property Name="CATEGORY_ID" Type="tinyint" />
+          <Property Name="AUTHOR_ID" Type="int" />
           <Property Name="PUBLISHDATE" Type="char" MaxLength="4" />
           <Property Name="PUBLISHER" Type="varchar" MaxLength="50" />
           <Property Name="PAGE" Type="varchar" MaxLength="4" />
@@ -47,22 +47,22 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BOOK" Type="int" />
-          <Property Name="USERINFO" Type="int" />
+          <Property Name="BOOK_ID" Type="int" />
+          <Property Name="USER_ID" Type="int" />
           <Property Name="BORROWDATE" Type="smalldatetime" />
           <Property Name="DUEDATE" Type="smalldatetime" />
-          <Property Name="STAFF" Type="tinyint" Nullable="false" />
+          <Property Name="STAFF_ID" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="PUNISHMENT">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="USERINFO" Type="int" />
+          <Property Name="USER_ID" Type="int" />
           <Property Name="STARTDATE" Type="smalldatetime" />
           <Property Name="ENDDATE" Type="smalldatetime" />
           <Property Name="MONEY" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="LOANS" Type="int" />
+          <Property Name="LOAN_ID" Type="int" />
         </EntityType>
         <EntityType Name="STAFF">
           <Key>
@@ -103,7 +103,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="BOOK">
-              <PropertyRef Name="AUTHOR" />
+              <PropertyRef Name="AUTHOR_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -115,7 +115,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="BOOK">
-              <PropertyRef Name="CATEGORY" />
+              <PropertyRef Name="CATEGORY_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -127,19 +127,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="LOANS">
-              <PropertyRef Name="BOOK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LOANS_USER">
-          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
-          <End Role="LOANS" Type="Self.LOANS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USER">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="LOANS">
-              <PropertyRef Name="USERINFO" />
+              <PropertyRef Name="BOOK_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -151,7 +139,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="PUNISHMENT">
-              <PropertyRef Name="LOANS" />
+              <PropertyRef Name="LOAN_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -163,7 +151,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="PUNISHMENT">
-              <PropertyRef Name="USERINFO" />
+              <PropertyRef Name="USER_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -175,7 +163,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="LOANS">
-              <PropertyRef Name="STAFF" />
+              <PropertyRef Name="STAFF_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -199,10 +187,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_LOANS_BOOK" Association="Self.FK_LOANS_BOOK">
             <End Role="BOOK" EntitySet="BOOK" />
-            <End Role="LOANS" EntitySet="LOANS" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LOANS_USER" Association="Self.FK_LOANS_USER">
-            <End Role="USER" EntitySet="USER" />
             <End Role="LOANS" EntitySet="LOANS" />
           </AssociationSet>
           <AssociationSet Name="FK_PUNISHMENT_LOANS" Association="Self.FK_PUNISHMENT_LOANS">
@@ -230,7 +214,7 @@
           <Property Name="NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="SURNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="DETAIL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BOOK" Relationship="Self.FK_BOOK_AUTHOR" FromRole="AUTHOR" ToRole="BOOK" />
+          <NavigationProperty Name="BOOK" Relationship="DBKUTUPHANEModel.FK_BOOK_AUTHOR1" FromRole="AUTHOR" ToRole="BOOK" />
         </EntityType>
         <EntityType Name="BOOK">
           <Key>
@@ -238,15 +222,15 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CATEGORY" Type="Byte" />
-          <Property Name="AUTHOR" Type="Int32" />
           <Property Name="PUBLISHDATE" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
           <Property Name="PUBLISHER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PAGE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="STATUS" Type="Boolean" />
-          <NavigationProperty Name="AUTHOR1" Relationship="Self.FK_BOOK_AUTHOR" FromRole="BOOK" ToRole="AUTHOR" />
-          <NavigationProperty Name="CATEGORY1" Relationship="Self.FK_BOOK_CATEGORY" FromRole="BOOK" ToRole="CATEGORY" />
-          <NavigationProperty Name="LOANS" Relationship="Self.FK_LOANS_BOOK" FromRole="BOOK" ToRole="LOANS" />
+          <Property Name="CATEGORY_ID" Type="Byte" />
+          <Property Name="AUTHOR_ID" Type="Int32" />
+          <NavigationProperty Name="AUTHOR" Relationship="DBKUTUPHANEModel.FK_BOOK_AUTHOR1" FromRole="BOOK" ToRole="AUTHOR" />
+          <NavigationProperty Name="CATEGORY" Relationship="DBKUTUPHANEModel.FK_BOOK_CATEGORY1" FromRole="BOOK" ToRole="CATEGORY" />
+          <NavigationProperty Name="LOANS" Relationship="DBKUTUPHANEModel.FK_LOANS_BOOK" FromRole="BOOK" ToRole="LOANS" />
         </EntityType>
         <EntityType Name="CASHBOX">
           <Key>
@@ -262,35 +246,35 @@
           </Key>
           <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BOOK" Relationship="Self.FK_BOOK_CATEGORY" FromRole="CATEGORY" ToRole="BOOK" />
+          <NavigationProperty Name="BOOK" Relationship="DBKUTUPHANEModel.FK_BOOK_CATEGORY1" FromRole="CATEGORY" ToRole="BOOK" />
         </EntityType>
         <EntityType Name="LOANS">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BOOK" Type="Int32" />
-          <Property Name="USERINFO" Type="Int32" />
           <Property Name="BORROWDATE" Type="DateTime" Precision="0" />
           <Property Name="DUEDATE" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="BOOK1" Relationship="Self.FK_LOANS_BOOK" FromRole="LOANS" ToRole="BOOK" />
-          <NavigationProperty Name="USER" Relationship="Self.FK_LOANS_USER" FromRole="LOANS" ToRole="USER" />
-          <NavigationProperty Name="PUNISHMENT" Relationship="Self.FK_PUNISHMENT_LOANS" FromRole="LOANS" ToRole="PUNISHMENT" />
-          <Property Name="STAFF" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="STAFF1" Relationship="DBKUTUPHANEModel.FK_STAFF" FromRole="LOANS" ToRole="STAFF" />
+          <Property Name="BOOK_ID" Type="Int32" />
+          <Property Name="USER_ID" Type="Int32" />
+          <Property Name="STAFF_ID" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="BOOK" Relationship="DBKUTUPHANEModel.FK_LOANS_BOOK" FromRole="LOANS" ToRole="BOOK" />
+          <NavigationProperty Name="USER" Relationship="DBKUTUPHANEModel.FK_LOANS_USER2" FromRole="LOANS" ToRole="USER" />
+          <NavigationProperty Name="PUNISHMENT" Relationship="DBKUTUPHANEModel.FK_PUNISHMENT_LOANS" FromRole="LOANS" ToRole="PUNISHMENT" />
+          <NavigationProperty Name="STAFF" Relationship="DBKUTUPHANEModel.FK_STAFF" FromRole="LOANS" ToRole="STAFF" />
         </EntityType>
         <EntityType Name="PUNISHMENT">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="USERINFO" Type="Int32" />
           <Property Name="STARTDATE" Type="DateTime" Precision="0" />
           <Property Name="ENDDATE" Type="DateTime" Precision="0" />
           <Property Name="MONEY" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="LOANS" Type="Int32" />
-          <NavigationProperty Name="LOANS1" Relationship="Self.FK_PUNISHMENT_LOANS" FromRole="PUNISHMENT" ToRole="LOANS" />
-          <NavigationProperty Name="USER" Relationship="Self.FK_PUNISHMENT_USER" FromRole="PUNISHMENT" ToRole="USER" />
+          <Property Name="USER_ID" Type="Int32" />
+          <Property Name="LOAN_ID" Type="Int32" />
+          <NavigationProperty Name="LOANS" Relationship="DBKUTUPHANEModel.FK_PUNISHMENT_LOANS" FromRole="PUNISHMENT" ToRole="LOANS" />
+          <NavigationProperty Name="USER" Relationship="DBKUTUPHANEModel.FK_PUNISHMENT_USER" FromRole="PUNISHMENT" ToRole="USER" />
         </EntityType>
         <EntityType Name="STAFF">
           <Key>
@@ -323,81 +307,9 @@
           <Property Name="IMAGE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="SCHOOLNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="LOANS" Relationship="Self.FK_LOANS_USER" FromRole="USER" ToRole="LOANS" />
-          <NavigationProperty Name="PUNISHMENT" Relationship="Self.FK_PUNISHMENT_USER" FromRole="USER" ToRole="PUNISHMENT" />
+          <NavigationProperty Name="LOANS" Relationship="DBKUTUPHANEModel.FK_LOANS_USER2" FromRole="USER" ToRole="LOANS" />
+          <NavigationProperty Name="PUNISHMENT" Relationship="DBKUTUPHANEModel.FK_PUNISHMENT_USER" FromRole="USER" ToRole="PUNISHMENT" />
         </EntityType>
-        <Association Name="FK_BOOK_AUTHOR">
-          <End Role="AUTHOR" Type="Self.AUTHOR" Multiplicity="0..1" />
-          <End Role="BOOK" Type="Self.BOOK" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AUTHOR">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="BOOK">
-              <PropertyRef Name="AUTHOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BOOK_CATEGORY">
-          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
-          <End Role="BOOK" Type="Self.BOOK" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORY">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="BOOK">
-              <PropertyRef Name="CATEGORY" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LOANS_BOOK">
-          <End Role="BOOK" Type="Self.BOOK" Multiplicity="0..1" />
-          <End Role="LOANS" Type="Self.LOANS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BOOK">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="LOANS">
-              <PropertyRef Name="BOOK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LOANS_USER">
-          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
-          <End Role="LOANS" Type="Self.LOANS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USER">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="LOANS">
-              <PropertyRef Name="USERINFO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PUNISHMENT_LOANS">
-          <End Role="LOANS" Type="Self.LOANS" Multiplicity="0..1" />
-          <End Role="PUNISHMENT" Type="Self.PUNISHMENT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LOANS">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PUNISHMENT">
-              <PropertyRef Name="LOANS" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PUNISHMENT_USER">
-          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
-          <End Role="PUNISHMENT" Type="Self.PUNISHMENT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USER">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PUNISHMENT">
-              <PropertyRef Name="USERINFO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="DBKUTUPHANEEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AUTHOR" EntityType="Self.AUTHOR" />
           <EntitySet Name="BOOK" EntityType="Self.BOOK" />
@@ -408,35 +320,95 @@
           <EntitySet Name="STAFF" EntityType="Self.STAFF" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="USER" EntityType="Self.USER" />
-          <AssociationSet Name="FK_BOOK_AUTHOR" Association="Self.FK_BOOK_AUTHOR">
+          <AssociationSet Name="FK_BOOK_AUTHOR1" Association="DBKUTUPHANEModel.FK_BOOK_AUTHOR1">
             <End Role="AUTHOR" EntitySet="AUTHOR" />
             <End Role="BOOK" EntitySet="BOOK" />
           </AssociationSet>
-          <AssociationSet Name="FK_BOOK_CATEGORY" Association="Self.FK_BOOK_CATEGORY">
+          <AssociationSet Name="FK_BOOK_CATEGORY1" Association="DBKUTUPHANEModel.FK_BOOK_CATEGORY1">
             <End Role="CATEGORY" EntitySet="CATEGORY" />
             <End Role="BOOK" EntitySet="BOOK" />
           </AssociationSet>
-          <AssociationSet Name="FK_LOANS_BOOK" Association="Self.FK_LOANS_BOOK">
+          <AssociationSet Name="FK_LOANS_BOOK" Association="DBKUTUPHANEModel.FK_LOANS_BOOK">
             <End Role="BOOK" EntitySet="BOOK" />
             <End Role="LOANS" EntitySet="LOANS" />
           </AssociationSet>
-          <AssociationSet Name="FK_LOANS_USER" Association="Self.FK_LOANS_USER">
+          <AssociationSet Name="FK_LOANS_USER2" Association="DBKUTUPHANEModel.FK_LOANS_USER2">
             <End Role="USER" EntitySet="USER" />
             <End Role="LOANS" EntitySet="LOANS" />
           </AssociationSet>
-          <AssociationSet Name="FK_PUNISHMENT_LOANS" Association="Self.FK_PUNISHMENT_LOANS">
+          <AssociationSet Name="FK_PUNISHMENT_LOANS" Association="DBKUTUPHANEModel.FK_PUNISHMENT_LOANS">
             <End Role="LOANS" EntitySet="LOANS" />
-            <End Role="PUNISHMENT" EntitySet="PUNISHMENT" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PUNISHMENT_USER" Association="Self.FK_PUNISHMENT_USER">
-            <End Role="USER" EntitySet="USER" />
             <End Role="PUNISHMENT" EntitySet="PUNISHMENT" />
           </AssociationSet>
           <AssociationSet Name="FK_STAFF" Association="DBKUTUPHANEModel.FK_STAFF">
             <End Role="STAFF" EntitySet="STAFF" />
             <End Role="LOANS" EntitySet="LOANS" />
           </AssociationSet>
+          <AssociationSet Name="FK_PUNISHMENT_USER" Association="DBKUTUPHANEModel.FK_PUNISHMENT_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="PUNISHMENT" EntitySet="PUNISHMENT" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_BOOK_AUTHOR1">
+          <End Type="DBKUTUPHANEModel.AUTHOR" Role="AUTHOR" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.BOOK" Role="BOOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTHOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOOK">
+              <PropertyRef Name="AUTHOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BOOK_CATEGORY1">
+          <End Type="DBKUTUPHANEModel.CATEGORY" Role="CATEGORY" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.BOOK" Role="BOOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOOK">
+              <PropertyRef Name="CATEGORY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOANS_BOOK">
+          <End Type="DBKUTUPHANEModel.BOOK" Role="BOOK" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.LOANS" Role="LOANS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOK">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LOANS">
+              <PropertyRef Name="BOOK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOANS_USER2">
+          <End Type="DBKUTUPHANEModel.USER" Role="USER" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.LOANS" Role="LOANS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LOANS">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PUNISHMENT_LOANS">
+          <End Type="DBKUTUPHANEModel.LOANS" Role="LOANS" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.PUNISHMENT" Role="PUNISHMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOANS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PUNISHMENT">
+              <PropertyRef Name="LOAN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_STAFF">
           <End Type="DBKUTUPHANEModel.STAFF" Role="STAFF" Multiplicity="1" />
           <End Type="DBKUTUPHANEModel.LOANS" Role="LOANS" Multiplicity="*" />
@@ -445,7 +417,19 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="LOANS">
-              <PropertyRef Name="STAFF" />
+              <PropertyRef Name="STAFF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PUNISHMENT_USER">
+          <End Type="DBKUTUPHANEModel.USER" Role="USER" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.PUNISHMENT" Role="PUNISHMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PUNISHMENT">
+              <PropertyRef Name="USER_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -468,10 +452,10 @@
           <EntitySetMapping Name="BOOK">
             <EntityTypeMapping TypeName="DBKUTUPHANEModel.BOOK">
               <MappingFragment StoreEntitySet="BOOK">
+                <ScalarProperty Name="AUTHOR_ID" ColumnName="AUTHOR_ID" />
+                <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
-                <ScalarProperty Name="AUTHOR" ColumnName="AUTHOR" />
                 <ScalarProperty Name="PUBLISHDATE" ColumnName="PUBLISHDATE" />
                 <ScalarProperty Name="PUBLISHER" ColumnName="PUBLISHER" />
                 <ScalarProperty Name="PAGE" ColumnName="PAGE" />
@@ -499,10 +483,10 @@
           <EntitySetMapping Name="LOANS">
             <EntityTypeMapping TypeName="DBKUTUPHANEModel.LOANS">
               <MappingFragment StoreEntitySet="LOANS">
-                <ScalarProperty Name="STAFF" ColumnName="STAFF" />
+                <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="BOOK_ID" ColumnName="BOOK_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="BOOK" ColumnName="BOOK" />
-                <ScalarProperty Name="USERINFO" ColumnName="USERINFO" />
                 <ScalarProperty Name="BORROWDATE" ColumnName="BORROWDATE" />
                 <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
               </MappingFragment>
@@ -511,12 +495,12 @@
           <EntitySetMapping Name="PUNISHMENT">
             <EntityTypeMapping TypeName="DBKUTUPHANEModel.PUNISHMENT">
               <MappingFragment StoreEntitySet="PUNISHMENT">
+                <ScalarProperty Name="LOAN_ID" ColumnName="LOAN_ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="USERINFO" ColumnName="USERINFO" />
                 <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
                 <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
                 <ScalarProperty Name="MONEY" ColumnName="MONEY" />
-                <ScalarProperty Name="LOANS" ColumnName="LOANS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
