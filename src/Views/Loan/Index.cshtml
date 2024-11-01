@@ -20,8 +20,8 @@
         <tr>
             <td>@item.ID</td>
             <td>@item.BOOK.NAME</td>
-            @*<td>@item.USER.NAME @item.USER.SURNAME</td>*@
-            <td>@(item.USER != null ? item.USER.NAME : "N/A")</td>
+            <td>@item.USER.NAME @item.USER.SURNAME</td>
+            @*<td>@(item.USER != null ? item.USER.NAME : "N/A")</td>*@
             <td>@item.STAFF.NAME</td>
             <td>@Convert.ToDateTime(item.BORROWDATE).ToString("dd/MM/yy")</td>
             <td>@Convert.ToDateTime(item.DUEDATE).ToString("dd/MM/yy")</td>
