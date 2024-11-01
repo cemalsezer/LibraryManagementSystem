@@ -32,8 +32,10 @@
         <tr>
             <td>@item.ID</td>
             <td>@item.NAME</td>
-            <td>@item.AUTHOR.NAME @item.AUTHOR.SURNAME</td>
-            <td>@item.CATEGORY.NAME</td>
+            @*<td>@item.AUTHOR.NAME @item.AUTHOR.SURNAME</td>
+            <td>@item.CATEGORY.NAME</td>*@
+            <td>@(item.AUTHOR != null ? item.AUTHOR.NAME + " " + item.AUTHOR.SURNAME : "Author Not Assigned")</td>
+            <td>@(item.CATEGORY != null ? item.CATEGORY.NAME : "Category Not Assigned")</td>
             <td>@item.PUBLISHDATE</td>
             <td>@item.PUBLISHER</td>
             <td>@item.PAGE</td>
