@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="DBKUTUPHANEModel.CASHBOX" Width="1.5" PointX="3.25" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.CATEGORY" Width="1.5" PointX="2.5" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.LOANS" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBKUTUPHANEModel.PUNISHMENT" Width="1.5" PointX="6.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.PUNISHMENT" Width="1.5" PointX="6.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.STAFF" Width="1.5" PointX="5" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.sysdiagrams" Width="1.5" PointX="7.625" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.USER" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
