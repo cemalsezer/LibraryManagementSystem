@@ -31,6 +31,11 @@ namespace LibraryManagementSystem.Controllers
             db.SaveChanges();
             return View();
         }
-        
+        public ActionResult ReturnLoan(int id)
+        {
+          var loan = db.LOANS.Find(id);
+            return View("ReturnLoan",loan);
+        }
+
     }
 }
