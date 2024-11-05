@@ -26,6 +26,8 @@ namespace LibraryManagementSystem.Models.Entity
         public Nullable<int> BOOK_ID { get; set; }
         public Nullable<int> USER_ID { get; set; }
         public byte STAFF_ID { get; set; }
+        public Nullable<bool> OPERATIONSSTATE { get; set; }
+        public Nullable<System.DateTime> USERRETURN { get; set; }
     
         public virtual BOOK BOOK { get; set; }
         public virtual USER USER { get; set; }

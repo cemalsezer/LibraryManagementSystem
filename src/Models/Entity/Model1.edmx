@@ -52,6 +52,8 @@
           <Property Name="BORROWDATE" Type="smalldatetime" />
           <Property Name="DUEDATE" Type="smalldatetime" />
           <Property Name="STAFF_ID" Type="tinyint" Nullable="false" />
+          <Property Name="OPERATIONSSTATE" Type="bit" />
+          <Property Name="USERRETURN" Type="smalldatetime" />
         </EntityType>
         <EntityType Name="PUNISHMENT">
           <Key>
@@ -262,6 +264,8 @@
           <NavigationProperty Name="USER" Relationship="DBKUTUPHANEModel.FK_LOANS_USER2" FromRole="LOANS" ToRole="USER" />
           <NavigationProperty Name="PUNISHMENT" Relationship="DBKUTUPHANEModel.FK_PUNISHMENT_LOANS" FromRole="LOANS" ToRole="PUNISHMENT" />
           <NavigationProperty Name="STAFF" Relationship="DBKUTUPHANEModel.FK_STAFF" FromRole="LOANS" ToRole="STAFF" />
+          <Property Name="OPERATIONSSTATE" Type="Boolean" />
+          <Property Name="USERRETURN" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="PUNISHMENT">
           <Key>
@@ -483,6 +487,8 @@
           <EntitySetMapping Name="LOANS">
             <EntityTypeMapping TypeName="DBKUTUPHANEModel.LOANS">
               <MappingFragment StoreEntitySet="LOANS">
+                <ScalarProperty Name="USERRETURN" ColumnName="USERRETURN" />
+                <ScalarProperty Name="OPERATIONSSTATE" ColumnName="OPERATIONSSTATE" />
                 <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
                 <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
                 <ScalarProperty Name="BOOK_ID" ColumnName="BOOK_ID" />
