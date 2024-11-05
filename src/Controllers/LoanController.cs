@@ -36,6 +36,14 @@ namespace LibraryManagementSystem.Controllers
           var loan = db.LOANS.Find(id);
             return View("ReturnLoan",loan);
         }
+        public ActionResult LoanUpdate(LOANS loan)
+        {
+            var l = db.LOANS.Find(loan.ID);
+            l.USERRETURN = loan.USERRETURN;
+            l.OPERATIONSSTATE = true;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
     }
 }
