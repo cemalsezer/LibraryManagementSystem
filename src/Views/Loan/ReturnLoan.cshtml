@@ -29,10 +29,10 @@
         @Html.TextBoxFor(c => c.DUEDATE, "{0: dd.MM.yyyy}", new { @class = "form-control" })
         <br />
         <label>Return Date</label>
-        <input type="text" class="form-control" value="@DateTime.Now.ToShortDateString()" />
+        <input type="text" class="form-control" name="USERRETURN" value="@DateTime.Now.ToShortDateString()" />
 
     </div>
     <div>
-        <button class="btn btn-warning">Update</button>
+        <button class="btn btn-warning">Return Loan</button>
     </div>
 }
