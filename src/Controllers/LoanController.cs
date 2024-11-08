@@ -16,7 +16,7 @@ namespace LibraryManagementSystem.Controllers
 
         public ActionResult Index()
         {
-            var values = db.LOANS.ToList();
+            var values = db.LOANS.Where(x=>x.OPERATIONSSTATE==false).ToList();
             return View(values);
         }
         [HttpGet]
