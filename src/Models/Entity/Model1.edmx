@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DBKUTUPHANEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ABOUTUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="AUTHOR">
           <Key>
             <PropertyRef Name="ID" />
@@ -26,6 +33,7 @@
           <Property Name="PUBLISHER" Type="varchar" MaxLength="50" />
           <Property Name="PAGE" Type="varchar" MaxLength="4" />
           <Property Name="STATUS" Type="bit" />
+          <Property Name="BOOKIMAGE" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="CASHBOX">
           <Key>
@@ -170,6 +178,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBKUTUPHANEModelStoreContainer">
+          <EntitySet Name="ABOUTUS" EntityType="Self.ABOUTUS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AUTHOR" EntityType="Self.AUTHOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BOOK" EntityType="Self.BOOK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CASHBOX" EntityType="Self.CASHBOX" Schema="dbo" store:Type="Tables" />
@@ -233,6 +242,7 @@
           <NavigationProperty Name="AUTHOR" Relationship="DBKUTUPHANEModel.FK_BOOK_AUTHOR1" FromRole="BOOK" ToRole="AUTHOR" />
           <NavigationProperty Name="CATEGORY" Relationship="DBKUTUPHANEModel.FK_BOOK_CATEGORY1" FromRole="BOOK" ToRole="CATEGORY" />
           <NavigationProperty Name="LOANS" Relationship="DBKUTUPHANEModel.FK_LOANS_BOOK" FromRole="BOOK" ToRole="LOANS" />
+          <Property Name="BOOKIMAGE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CASHBOX">
           <Key>
@@ -352,6 +362,7 @@
             <End Role="USER" EntitySet="USER" />
             <End Role="PUNISHMENT" EntitySet="PUNISHMENT" />
           </AssociationSet>
+          <EntitySet Name="ABOUTUS" EntityType="DBKUTUPHANEModel.ABOUTUS" />
         </EntityContainer>
         <Association Name="FK_BOOK_AUTHOR1">
           <End Type="DBKUTUPHANEModel.AUTHOR" Role="AUTHOR" Multiplicity="0..1" />
@@ -437,6 +448,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ABOUTUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -456,6 +474,7 @@
           <EntitySetMapping Name="BOOK">
             <EntityTypeMapping TypeName="DBKUTUPHANEModel.BOOK">
               <MappingFragment StoreEntitySet="BOOK">
+                <ScalarProperty Name="BOOKIMAGE" ColumnName="BOOKIMAGE" />
                 <ScalarProperty Name="AUTHOR_ID" ColumnName="AUTHOR_ID" />
                 <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -541,6 +560,14 @@
                 <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
                 <ScalarProperty Name="PHONE" ColumnName="PHONE" />
                 <ScalarProperty Name="SCHOOLNAME" ColumnName="SCHOOLNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ABOUTUS">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.ABOUTUS">
+              <MappingFragment StoreEntitySet="ABOUTUS">
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

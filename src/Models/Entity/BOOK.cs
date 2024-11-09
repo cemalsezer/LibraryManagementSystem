@@ -28,6 +28,7 @@ namespace LibraryManagementSystem.Models.Entity
         public Nullable<bool> STATUS { get; set; }
         public Nullable<byte> CATEGORY_ID { get; set; }
         public Nullable<int> AUTHOR_ID { get; set; }
+        public string BOOKIMAGE { get; set; }
     
         public virtual AUTHOR AUTHOR { get; set; }
         public virtual CATEGORY CATEGORY { get; set; }
