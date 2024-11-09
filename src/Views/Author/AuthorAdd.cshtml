@@ -9,6 +9,7 @@
     <div style="margin-top:15px">
         <label>AUTHOR'S NAME</label>
         @Html.TextBoxFor(x => x.NAME, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.NAME)
     </div>
     <div style="margin-top:15px">
         <label>AUTHOR'S LASTNAME</label>
