@@ -35,5 +35,6 @@ namespace LibraryManagementSystem.Models.Entity
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<USER> USER { get; set; }
         public virtual DbSet<ABOUTUS> ABOUTUS { get; set; }
+        public virtual DbSet<CONTACTUS> CONTACTUS { get; set; }
     }
 }

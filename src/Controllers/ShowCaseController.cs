@@ -12,6 +12,8 @@ namespace LibraryManagementSystem.Controllers
     {
         // GET: ShowCase
         DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
+
+        [HttpGet]
         public ActionResult Index()
         {
             Class1 cs = new Class1();
@@ -20,6 +22,14 @@ namespace LibraryManagementSystem.Controllers
 
             //var values = db.BOOK.ToList();
             return View(cs);
+        }
+        
+        [HttpPost]
+        public ActionResult Index(CONTACTUS cu) 
+        {
+            db.CONTACTUS.Add(cu);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
