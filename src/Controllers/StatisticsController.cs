@@ -9,7 +9,6 @@ namespace LibraryManagementSystem.Controllers
 {
     public class StatisticsController : Controller
     {
-        // GET: Statistics
         public ActionResult Index()
         {
             return View();
