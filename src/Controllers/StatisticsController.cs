@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -24,6 +25,17 @@ namespace LibraryManagementSystem.Controllers
         public ActionResult Gallery()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult ImageUpload(HttpPostedFileBase files)
+        {
+            if (files.ContentLength > 0) 
+            {
+                string fileUrl = Path.Combine(Server.MapPath("~/web2/resimler/"), Path.GetFileName
+                    (files.FileName));
+                files.SaveAs(fileUrl);
+            }
+            return RedirectToAction("Gallery");
         }
     }
 }

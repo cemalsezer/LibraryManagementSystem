@@ -16,7 +16,7 @@
 
     <div class="container">
         <h2>Library</h2>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:1000px; height:500px">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -63,5 +63,12 @@
 
 </body>
 </html>
-
-
+<div style="display: flex; justify-content: center; margin-top:150px">
+    <div>
+        <form action="/Statistics/imageupload" method="post" enctype="multipart/form-data">
+            <input type="file" name="files" id="files" />
+            <br />
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
