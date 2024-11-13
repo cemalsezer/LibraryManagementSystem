@@ -28,8 +28,12 @@
         <label>Due Date</label>
         @Html.TextBoxFor(c => c.DUEDATE, "{0: dd.MM.yyyy}", new { @class = "form-control" })
         <br />
-        <label>Return Date</label>
+        <label>User Return Date</label>
         <input type="text" class="form-control" name="USERRETURN" value="@DateTime.Now.ToShortDateString()" />
+        <br />
+        <label>Late Day Count</label>
+        <input type="text" class="form-control" id="latereturn" value="@ViewBag.vls"/>
+
 
     </div>
     <div>

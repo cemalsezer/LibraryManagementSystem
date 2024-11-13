@@ -16,7 +16,7 @@ namespace LibraryManagementSystem.Controllers
 
         public ActionResult Index()
         {
-            var values = db.LOANS.Where(x=>x.OPERATIONSSTATE==false).ToList();
+            var values = db.LOANS.Where(x => x.OPERATIONSSTATE == false).ToList();
             return View(values);
         }
         [HttpGet]
@@ -31,10 +31,15 @@ namespace LibraryManagementSystem.Controllers
             db.SaveChanges();
             return View();
         }
-        public ActionResult ReturnLoan(int id)
+        public ActionResult ReturnLoan(LOANS p)
         {
-          var loan = db.LOANS.Find(id);
-            return View("ReturnLoan",loan);
+            var loan = db.LOANS.Find(p.ID);
+            DateTime d1 = DateTime.Parse(loan.DUEDATE.ToString());
+            DateTime d2 = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            TimeSpan d3 = d2 - d1;
+            ViewBag.vls = d3.TotalDays;
+            return View("ReturnLoan", loan);
+
         }
         public ActionResult LoanUpdate(LOANS loan)
         {
