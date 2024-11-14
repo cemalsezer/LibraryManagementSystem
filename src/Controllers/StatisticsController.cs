@@ -10,8 +10,17 @@ namespace LibraryManagementSystem.Controllers
 {
     public class StatisticsController : Controller
     {
+        DBKUTUPHANEEntities db  = new DBKUTUPHANEEntities();
         public ActionResult Index()
         {
+            var values1 = db.USER.Count();
+            var values2 = db.BOOK.Count();
+            var values3 = db.BOOK.Where(x => x.STATUS == false).Count();
+            var values4 = db.PUNISHMENT.Sum(x => x.MONEY);
+            ViewBag.vls1 = values1;
+            ViewBag.vls2 = values2;
+            ViewBag.vls3 = values3;
+            ViewBag.vls4 = values4;
             return View();
         }
         public ActionResult Weather()
@@ -36,6 +45,10 @@ namespace LibraryManagementSystem.Controllers
                 files.SaveAs(fileUrl);
             }
             return RedirectToAction("Gallery");
+        }
+        public ActionResult LinqCard()
+        {
+            return View();
         }
     }
 }
