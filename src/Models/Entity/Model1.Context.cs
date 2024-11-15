@@ -12,6 +12,8 @@ namespace LibraryManagementSystem.Models.Entity
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DBKUTUPHANEEntities : DbContext
     {
@@ -36,5 +38,10 @@ namespace LibraryManagementSystem.Models.Entity
         public virtual DbSet<USER> USER { get; set; }
         public virtual DbSet<ABOUTUS> ABOUTUS { get; set; }
         public virtual DbSet<CONTACTUS> CONTACTUS { get; set; }
+    
+        public virtual ObjectResult<string> authormostbooks()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("authormostbooks");
+        }
     }
 }

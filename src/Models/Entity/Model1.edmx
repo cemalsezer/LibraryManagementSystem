@@ -187,6 +187,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="authormostbooks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DBKUTUPHANEModelStoreContainer">
           <EntitySet Name="ABOUTUS" EntityType="Self.ABOUTUS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AUTHOR" EntityType="Self.AUTHOR" Schema="dbo" store:Type="Tables" />
@@ -375,6 +376,7 @@
           </AssociationSet>
           <EntitySet Name="ABOUTUS" EntityType="DBKUTUPHANEModel.ABOUTUS" />
           <EntitySet Name="CONTACTUS" EntityType="DBKUTUPHANEModel.CONTACTUS" />
+          <FunctionImport Name="authormostbooks" ReturnType="Collection(String)" />
         </EntityContainer>
         <Association Name="FK_BOOK_AUTHOR1">
           <End Type="DBKUTUPHANEModel.AUTHOR" Role="AUTHOR" Multiplicity="0..1" />
@@ -604,6 +606,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="authormostbooks" FunctionName="DBKUTUPHANEModel.Store.authormostbooks" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

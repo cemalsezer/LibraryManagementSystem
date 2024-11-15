@@ -11,8 +11,7 @@ namespace LibraryManagementSystem.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class AUTHOR
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +21,6 @@ namespace LibraryManagementSystem.Models.Entity
         }
     
         public int ID { get; set; }
-        [Required(ErrorMessage ="Name is required!")]
         public string NAME { get; set; }
         public string SURNAME { get; set; }
         public string DETAIL { get; set; }
