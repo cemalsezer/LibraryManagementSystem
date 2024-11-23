@@ -49,6 +49,7 @@
           </Key>
           <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="varchar" MaxLength="20" />
+          <Property Name="STATUS" Type="bit" />
         </EntityType>
         <EntityType Name="CONTACTUS">
           <Key>
@@ -72,6 +73,17 @@
           <Property Name="STAFF_ID" Type="tinyint" Nullable="false" />
           <Property Name="OPERATIONSSTATE" Type="bit" />
           <Property Name="USERRETURN" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="MESSAGE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SENDER" Type="varchar" MaxLength="50" />
+          <Property Name="RECEIVER" Type="varchar" MaxLength="50" />
+          <Property Name="SUBJECT" Type="varchar" MaxLength="50" />
+          <Property Name="TEXT" Type="varchar" MaxLength="500" />
+          <Property Name="DATE" Type="smalldatetime" />
         </EntityType>
         <EntityType Name="PUNISHMENT">
           <Key>
@@ -196,6 +208,7 @@
           <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONTACTUS" EntityType="Self.CONTACTUS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOANS" EntityType="Self.LOANS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MESSAGE" EntityType="Self.MESSAGE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PUNISHMENT" EntityType="Self.PUNISHMENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STAFF" EntityType="Self.STAFF" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -271,6 +284,7 @@
           <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="BOOK" Relationship="DBKUTUPHANEModel.FK_BOOK_CATEGORY1" FromRole="CATEGORY" ToRole="BOOK" />
+          <Property Name="STATUS" Type="Boolean" />
         </EntityType>
         <EntityType Name="LOANS">
           <Key>
@@ -377,6 +391,7 @@
           <EntitySet Name="ABOUTUS" EntityType="DBKUTUPHANEModel.ABOUTUS" />
           <EntitySet Name="CONTACTUS" EntityType="DBKUTUPHANEModel.CONTACTUS" />
           <FunctionImport Name="authormostbooks" ReturnType="Collection(String)" />
+          <EntitySet Name="MESSAGE" EntityType="DBKUTUPHANEModel.MESSAGE" />
         </EntityContainer>
         <Association Name="FK_BOOK_AUTHOR1">
           <End Type="DBKUTUPHANEModel.AUTHOR" Role="AUTHOR" Multiplicity="0..1" />
@@ -479,6 +494,17 @@
           <Property Name="TITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MESSAGE" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="MESSAGE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SENDER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RECEIVER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUBJECT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TEXT" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DATE" Type="DateTime" Precision="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -522,6 +548,7 @@
           <EntitySetMapping Name="CATEGORY">
             <EntityTypeMapping TypeName="DBKUTUPHANEModel.CATEGORY">
               <MappingFragment StoreEntitySet="CATEGORY">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
               </MappingFragment>
@@ -607,6 +634,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="authormostbooks" FunctionName="DBKUTUPHANEModel.Store.authormostbooks" />
+          <EntitySetMapping Name="MESSAGE">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.MESSAGE">
+              <MappingFragment StoreEntitySet="MESSAGE">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="TEXT" ColumnName="TEXT" />
+                <ScalarProperty Name="SUBJECT" ColumnName="SUBJECT" />
+                <ScalarProperty Name="RECEIVER" ColumnName="RECEIVER" />
+                <ScalarProperty Name="SENDER" ColumnName="SENDER" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
