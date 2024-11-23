@@ -62,5 +62,12 @@ namespace LibraryManagementSystem.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult UserTransactionHistory(int id)
+        {
+            var traHistory = db.LOANS.Where(x => x.USER_ID == id).ToList();
+            var userBook = db.USER.Where(y => y.ID == id).Select(z => z.NAME + " " + z.SURNAME).FirstOrDefault();
+            ViewBag.u1 = userBook;
+            return View(traHistory);
+        }
     }
 }

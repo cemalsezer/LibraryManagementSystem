@@ -29,7 +29,7 @@ namespace LibraryManagementSystem.Controllers
             }
             db.AUTHOR.Add(author);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return View();
         }
         public ActionResult AuthorDelete(int id)
         {
@@ -51,6 +51,13 @@ namespace LibraryManagementSystem.Controllers
             authorInfo.DETAIL = author.DETAIL;
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult AuthorBooks(int id)
+        {
+            var author = db.BOOK.Where(x => x.AUTHOR_ID == id).ToList();
+            var authorName = db.AUTHOR.Where(y => y.ID == id).Select(z => z.NAME + " " + z.SURNAME).FirstOrDefault();
+            ViewBag.y1 = authorName;
+            return View(author);
         }
     }
 }

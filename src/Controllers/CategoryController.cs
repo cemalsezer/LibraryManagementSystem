@@ -12,7 +12,7 @@ namespace LibraryManagementSystem.Controllers
         DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
         public ActionResult Index()
         {
-            var values = db.CATEGORY.ToList();
+            var values = db.CATEGORY.Where(x => x.STATUS == true).ToList();
             return View(values);
         }
         [HttpGet]
@@ -31,7 +31,8 @@ namespace LibraryManagementSystem.Controllers
         public ActionResult CategoryDelete(int id) 
         {
             var category = db.CATEGORY.Find(id);
-            db.CATEGORY.Remove(category);
+            //db.CATEGORY.Remove(category);
+            category.STATUS = false;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
