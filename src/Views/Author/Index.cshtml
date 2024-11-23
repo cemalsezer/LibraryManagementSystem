@@ -11,9 +11,9 @@
         <th>ID</th>
         <th>NAME</th>
         <th>LASTNAME</th>
-        <th>DETAIL</th>
         <th>DELETE</th>
         <th>UPDATE</th>
+        <th>Author's Books</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -21,9 +21,10 @@
             <td>@item.ID</td>
             <td>@item.NAME</td>
             <td>@item.SURNAME</td>
-            <td>@item.DETAIL</td>
-            <td>@Html.ActionLink("Delete", "AuthorDelete", new {id=item.ID},new {@class="btn btn-danger", onclick= "return confirm('Are you want delete')"})</td>
-            <td><a href="/Author/AuthorGet/@item.ID" class="btn btn-success">UPDATE</a> </td>
+            <td>@Html.ActionLink("Delete", "AuthorDelete", new { id = item.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Are you want delete')" })</td>
+            <td><a href="/Author/AuthorGet/@item.ID" class="btn btn-warning">UPDATE</a> </td>
+            <td><a href="/Author/AuthorBooks/@item.ID" class="btn btn-default" style="background-color:lightseagreen">Author's Books</a></td>
+
         </tr>
     }
 </table>

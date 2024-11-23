@@ -15,13 +15,14 @@
         <th>ID</th>
         <th>NAME</th>
         <th>LASTNAME</th>
-        <th>EMAIL</th>
+        @*<th>EMAIL</th>
         <th>USERNAME</th>
         <th>PASSWORD</th>
-        <th>PHONE</th>
+        <th>PHONE</th>*@
         <th>SCHOOL NAME</th>
         <th>DELETE</th>
         <th>UPDATE</th>
+        <th>TRANSACTION HISTORY</th>
     </tr>
     @foreach (var user in Model)
     {
@@ -29,13 +30,14 @@
             <td>@user.ID</td>
             <td>@user.NAME</td>
             <td>@user.SURNAME</td>
-            <td>@user.EMAIL</td>
+            @*<td>@user.EMAIL</td>
             <td>@user.USERNAME</td>
             <td>@user.PASSWORD</td>
-            <td>@user.PHONE</td>
+            <td>@user.PHONE</td>*@
             <td>@user.SCHOOLNAME</td>
             <td><a href="/User/UserDelete/@user.ID" class="btn btn-danger">Delete</a></td>
             <td><a href="/User/UserGet/@user.ID" class="btn btn-success">Update</a></td>
+            <td><a href="/User/UserTransactionHistory/@user.ID" class="btn btn-success" style="background-color:lightseagreen">Transaction History</a></td>
         </tr>
 
     }

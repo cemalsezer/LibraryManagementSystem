@@ -1,0 +1,31 @@
+﻿@using LibraryManagementSystem.Models.Entity
+@model List<LOANS>
+@{
+    ViewBag.Title = "UserTransactionHistory";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>User: @ViewBag.u1</h2>
+<br />
+<table class="table table-danger">
+    <tr>
+        <th>BOOK NAME</th>
+        <th>STAFF</th>
+        <th>BORROW DATE</th>
+        <th>DUEDATE</th>
+        <th>USER RETURN DATE</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.BOOK.NAME</td>
+            <td>@x.STAFF.NAME</td>
+            <td>@Convert.ToDateTime(x.DUEDATE).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(x.BORROWDATE).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(x.USERRETURN).ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+</table>
+
+
+

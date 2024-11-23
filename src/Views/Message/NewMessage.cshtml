@@ -1,0 +1,27 @@
+﻿@model LibraryManagementSystem.Models.Entity.MESSAGE
+
+@{
+    ViewBag.Title = "NewMessage";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Receiver EMail</label>
+        @Html.TextBoxFor(x => x.RECEIVER, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Subject</label>
+        @Html.TextBoxFor(x => x.SUBJECT, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Text</label>
+        @Html.TextAreaFor(x => x.TEXT, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Submit</button>
+    </div>
+</form>
+
+

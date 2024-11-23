@@ -1,0 +1,26 @@
+﻿@using LibraryManagementSystem.Models.Entity
+@model List<MESSAGE>
+@{
+    ViewBag.Title = "Outgoing";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<h2>Outgoing Messages Page</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Receiver</th>
+        <th>Subject</th>
+        <th>Text</th>
+        <th>Date</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.RECEIVER</td>
+            <td>@x.SUBJECT</td>
+            <td>@x.TEXT</td>
+            <td>@x.DATE</td>
+        </tr>
+    }
+</table>
