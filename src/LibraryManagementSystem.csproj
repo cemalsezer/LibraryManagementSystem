@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AnnouncementController.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -153,6 +154,9 @@
     </Compile>
     <Compile Include="Models\Classes\Class1.cs" />
     <Compile Include="Models\Entity\ABOUTUS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\ANNOUNCEMENT.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\AUTHOR.cs">
@@ -598,6 +602,10 @@
     <Content Include="Views\Panel\Books.cshtml" />
     <Content Include="Views\Author\AuthorBooks.cshtml" />
     <Content Include="Views\User\UserTransactionHistory.cshtml" />
+    <Content Include="Views\Announcement\Index.cshtml" />
+    <Content Include="Views\Announcement\NewAnnouncement.cshtml" />
+    <Content Include="Views\Announcement\DetailAnnouncement.cshtml" />
+    <Content Include="Views\Panel\Announcements.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

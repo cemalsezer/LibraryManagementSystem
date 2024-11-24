@@ -12,6 +12,15 @@
           <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DESCRIPTION" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="ANNOUNCEMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AN_CATEGORY" Type="varchar" MaxLength="50" />
+          <Property Name="TEXT" Type="varchar" MaxLength="250" />
+          <Property Name="DATE" Type="datetime" />
+        </EntityType>
         <EntityType Name="AUTHOR">
           <Key>
             <PropertyRef Name="ID" />
@@ -202,6 +211,7 @@
         <Function Name="authormostbooks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DBKUTUPHANEModelStoreContainer">
           <EntitySet Name="ABOUTUS" EntityType="Self.ABOUTUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ANNOUNCEMENT" EntityType="Self.ANNOUNCEMENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AUTHOR" EntityType="Self.AUTHOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BOOK" EntityType="Self.BOOK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CASHBOX" EntityType="Self.CASHBOX" Schema="dbo" store:Type="Tables" />
@@ -392,6 +402,7 @@
           <EntitySet Name="CONTACTUS" EntityType="DBKUTUPHANEModel.CONTACTUS" />
           <FunctionImport Name="authormostbooks" ReturnType="Collection(String)" />
           <EntitySet Name="MESSAGE" EntityType="DBKUTUPHANEModel.MESSAGE" />
+          <EntitySet Name="ANNOUNCEMENT" EntityType="DBKUTUPHANEModel.ANNOUNCEMENT" />
         </EntityContainer>
         <Association Name="FK_BOOK_AUTHOR1">
           <End Type="DBKUTUPHANEModel.AUTHOR" Role="AUTHOR" Multiplicity="0..1" />
@@ -504,6 +515,15 @@
           <Property Name="SUBJECT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TEXT" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="DATE" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="ANNOUNCEMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AN_CATEGORY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TEXT" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DATE" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -642,6 +662,16 @@
                 <ScalarProperty Name="SUBJECT" ColumnName="SUBJECT" />
                 <ScalarProperty Name="RECEIVER" ColumnName="RECEIVER" />
                 <ScalarProperty Name="SENDER" ColumnName="SENDER" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ANNOUNCEMENT">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.ANNOUNCEMENT">
+              <MappingFragment StoreEntitySet="ANNOUNCEMENT">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="TEXT" ColumnName="TEXT" />
+                <ScalarProperty Name="AN_CATEGORY" ColumnName="AN_CATEGORY" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
