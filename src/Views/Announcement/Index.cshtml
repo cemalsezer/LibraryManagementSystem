@@ -1,0 +1,53 @@
+﻿@using LibraryManagementSystem.Models.Entity;
+@model List<ANNOUNCEMENT>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    string colour = "";
+
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<h2>Duyurular</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Announcement No</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Delete</th>
+        <th>Text</th>
+    </tr>
+    @foreach (var prs in Model)
+    {
+
+        if (prs.AN_CATEGORY == "Other")
+        {
+            colour = "bg-info text-white";
+        }
+        if (prs.AN_CATEGORY == "New Book")
+        {
+            colour = "bg-warning text-white";
+        }
+        if (prs.AN_CATEGORY == "Contact")
+        {
+            colour = "bg-success text-white";
+        }
+        if (prs.AN_CATEGORY == "Book Late")
+        {
+            colour = "bg-danger text-white";
+        }
+        <tr class="@colour">
+            <td>@prs.ID</td>
+            <td>@prs.AN_CATEGORY</td>
+            <td>@Convert.ToDateTime(prs.DATE).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Announcement/DeleteAnnouncement/@prs.ID" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Announcement/DetailAnnouncement/@prs.ID" class="btn btn-default"  style="background-color:lightseagreen">Details</a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Announcement/NewAnnouncement/" class="btn btn-primary">New Announcement Add</a>
