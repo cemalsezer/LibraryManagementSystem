@@ -41,15 +41,15 @@ namespace LibraryManagementSystem.Controllers
             var degerler = db.LOANS.Where(x => x.USER_ID == id).ToList();
             return View(degerler);
         }
-        //public ActionResult Announcements()
-        //{
-        //    //var duyurulistesi = db.ANNOUNCEMENTS.ToList();
-        //    //return View(duyurulistesi);
-        //}
+        public ActionResult Announcements()
+        {
+            var announcementList = db.ANNOUNCEMENT.ToList();
+            return View(announcementList);
+        }
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("GirisYap", "Login");
+            return RedirectToAction("Login", "Login");
         }
     }
 }
