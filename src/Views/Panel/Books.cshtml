@@ -5,8 +5,6 @@
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 
-<h2>Books</h2>
-
 <br />
 <h2>Kitap Geçmişim</h2>
 <br />
@@ -14,6 +12,7 @@
     <tr>
         <th>Kitap Adı</th>
         <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
         <th>Üye İade Tarihi</th>
     </tr>
     @foreach (var k in Model)
@@ -21,6 +20,7 @@
         <tr>
             <td>@k.BOOK.NAME</td>
             <td>@Convert.ToDateTime(k.BORROWDATE).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(k.DUEDATE).ToString("dd/MM/yyyy")</td>
             <td>@Convert.ToDateTime(k.USERRETURN).ToString("dd/MM/yyyy")</td>
         </tr>
     }
