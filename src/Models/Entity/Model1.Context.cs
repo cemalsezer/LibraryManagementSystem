@@ -40,6 +40,7 @@ namespace LibraryManagementSystem.Models.Entity
         public virtual DbSet<CONTACTUS> CONTACTUS { get; set; }
         public virtual DbSet<MESSAGE> MESSAGE { get; set; }
         public virtual DbSet<ANNOUNCEMENT> ANNOUNCEMENT { get; set; }
+        public virtual DbSet<ADMIN> ADMIN { get; set; }
     
         public virtual ObjectResult<string> authormostbooks()
         {
