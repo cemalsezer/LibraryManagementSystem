@@ -1,27 +1,169 @@
-﻿@using LibraryManagementSystem.Models.Entity
+﻿@*@using LibraryManagementSystem.Models.Entity
+    @model List<LOANS>
+    @{
+        ViewBag.Title = "Books";
+        Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+    }
+
+    <br />
+    <h2>Kitap Geçmişim</h2>
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>Kitap Adı</th>
+            <th>Alış Tarihi</th>
+            <th>İade Tarihi</th>
+            <th>Üye İade Tarihi</th>
+        </tr>
+        @foreach (var k in Model)
+        {
+            <tr>
+                <td>@k.BOOK.NAME</td>
+                <td>@Convert.ToDateTime(k.BORROWDATE).ToString("dd/MM/yyyy")</td>
+                <td>@Convert.ToDateTime(k.DUEDATE).ToString("dd/MM/yyyy")</td>
+                <td>@Convert.ToDateTime(k.USERRETURN).ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+    </table>*@
+
+
+
+
+@using LibraryManagementSystem.Models.Entity
+
 @model List<LOANS>
+
 @{
     ViewBag.Title = "Books";
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+
 }
 
-<br />
-<h2>Kitap Geçmişim</h2>
-<br />
-<table class="table table-bordered">
-    <tr>
-        <th>Kitap Adı</th>
-        <th>Alış Tarihi</th>
-        <th>İade Tarihi</th>
-        <th>Üye İade Tarihi</th>
-    </tr>
-    @foreach (var k in Model)
-    {
-        <tr>
-            <td>@k.BOOK.NAME</td>
-            <td>@Convert.ToDateTime(k.BORROWDATE).ToString("dd/MM/yyyy")</td>
-            <td>@Convert.ToDateTime(k.DUEDATE).ToString("dd/MM/yyyy")</td>
-            <td>@Convert.ToDateTime(k.USERRETURN).ToString("dd/MM/yyyy")</td>
-        </tr>
-    }
-</table>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <section class="content">
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+
+
+                <!-- /.col -->
+
+                <div class="col-md-12">
+
+                    <div class="card">
+
+                        <div class="card-header p-2">
+
+
+
+                        </div><!-- /.card-header -->
+
+                        <div class="card-body">
+
+
+
+                            <div class="tab-pane" id="timeline">
+
+                                <!-- The timeline -->
+
+                                <div class="timeline timeline-inverse">
+
+                                    <!-- timeline time label -->
+
+                                    @foreach (var item in Model)
+
+                                    {
+
+                                        <div class="time-label">
+
+                                            <a class="btn btn-success">
+
+                                                <span class="bg-success">
+
+                                                    @(((DateTime)item.BORROWDATE).ToString("dd-MMM-yyyy"))
+
+                                                </span>
+
+                                            </a>
+
+                                            -----
+
+                                            <a class="btn btn-warning">
+
+                                                <span class="bg-warning">
+
+                                                    @(((DateTime)item.USERRETURN).ToString("dd-MMM-yyyy"))
+
+                                                </span>
+
+                                            </a>
+
+                                        </div>
+
+                                        <!-- /.timeline-label -->
+
+                                        <!-- timeline item -->
+
+                                        <div>
+
+                                            @*<i class="fas fa-comment bg-primary"></i>*@
+
+                                            <div class="timeline-item">
+
+                                                <div class="timeline-body">
+
+                                                    @item.BOOK.NAME
+
+                                                </div>
+
+                                                @*<div class="timeline-footer">
+
+                                                        <a href="#" class="btn btn-primary btn-sm">Düzenle</a>
+
+                                                        <a href="#" class="btn btn-danger btn-sm">Sil</a>
+
+                                                    </div>*@
+
+                                            </div>
+
+                                        </div>
+
+                                    }
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div><!-- /.card-body -->
+
+                </div>
+
+                <!-- /.nav-tabs-custom -->
+
+            </div>
+
+            <!-- /.col -->
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
+
+

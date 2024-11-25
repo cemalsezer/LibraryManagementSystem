@@ -1,0 +1,58 @@
+﻿@using LibraryManagementSystem.Models.Entity;
+@model List<ADMIN>
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+@*<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />*@
+
+
+@*<link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css" />*@
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>USERNAME</th>
+        <th>AUTHORITY</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.ADMINEMAIL</td>
+            <td>@x.AUTHORITY</td>
+            <td><a class="btn btn-info btn-sm" href="/Setting/UpdateAdmin/@x.ID"><i class="fas fa-pencil-alt"></i> EDIT</a></td>
+            <td><a class="btn btn-danger btn-sm" href="/Setting/DeleteAdmin/@x.ID"><i class="fas fa-trash"></i> DELETE</a></td>
+        </tr>
+    }
+</table>
+<br />
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">New Admin Add</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Admin Panel</h2>
+            </div>
+            <form method="post" action="/Setting/NewAdmin">
+                <div class="modal-body">
+                    <label>USERNAME</label>
+                    <input type="text" name="ADMINEMAIL" class="form-control" />
+                    <br />
+                    <label>PASSWORD</label>
+                    <input type="text" name="PASSWORD" class="form-control" />
+                    <br />
+                    <label>AUTHORITY</label>
+                    <input type="text" name="AUTHORITY" class="form-control" />
+                    <br />
+                    <button class="btn btn-info">SAVE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
