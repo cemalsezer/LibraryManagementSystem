@@ -9,6 +9,7 @@ using System.Web.Security;
 
 namespace LibraryManagementSystem.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login
@@ -25,12 +26,6 @@ namespace LibraryManagementSystem.Controllers
             {
                 FormsAuthentication.SetAuthCookie(info.EMAIL, false);
                 Session["Email"] = info.EMAIL.ToString();
-                //TempData["id"] = info.ID.ToString();
-                //TempData["Name"] = info.NAME.ToString();
-                //TempData["Surname"] = info.SURNAME.ToString();
-                //TempData["UserName"] = info.USERNAME.ToString();
-                //TempData["Sifre"] = info.PASSWORD.ToString();
-                //TempData["University"] = info.SCHOOLNAME.ToString();
                 return RedirectToAction("Index", "Panel");
             }
             else

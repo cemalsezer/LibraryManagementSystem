@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace LibraryManagementSystem.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
         // GET: Register

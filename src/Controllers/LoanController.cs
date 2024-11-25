@@ -13,7 +13,7 @@ namespace LibraryManagementSystem.Controllers
     {
         // GET: Loan
         DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
-
+        [Authorize(Roles ="A")]
         public ActionResult Index()
         {
             var values = db.LOANS.Where(x => x.OPERATIONSSTATE == false).ToList();

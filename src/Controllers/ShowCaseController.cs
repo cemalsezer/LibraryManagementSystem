@@ -8,6 +8,7 @@ using LibraryManagementSystem.Models.Classes;
 
 namespace LibraryManagementSystem.Controllers
 {
+    [AllowAnonymous]
     public class ShowCaseController : Controller
     {
         // GET: ShowCase
