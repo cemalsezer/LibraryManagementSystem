@@ -91,7 +91,11 @@
 
                                                 <span class="bg-success">
 
-                                                    @(((DateTime)item.BORROWDATE).ToString("dd-MMM-yyyy"))
+                                                    @(((DateTime)item.BORROWDATE).ToString("dd-MM-yyyy"))
+
+                                                    @*@(item.BORROWDATE.HasValue
+                                                        ? item.BORROWDATE.Value.ToString("dd-MM-yyyy")
+                                                        : "N/A")*@
 
                                                 </span>
 
@@ -103,7 +107,11 @@
 
                                                 <span class="bg-warning">
 
-                                                    @(((DateTime)item.USERRETURN).ToString("dd-MMM-yyyy"))
+                                                    @(((DateTime)item.USERRETURN).ToString("dd-MM-yyyy"))
+
+                                                    @*@(item.USERRETURN.HasValue
+                                                        ? item.USERRETURN.Value.ToString("dd-MM-yyyy")
+                                                        : "N/A")*@
 
                                                 </span>
 

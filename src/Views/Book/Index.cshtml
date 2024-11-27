@@ -24,6 +24,7 @@
         <th>Book's Publisher</th>
         <th>Book's Page</th>
         <th>Book's Status</th>
+        <th>Book Image</th>
         <th>Delete</th>
         <th>Update</th>
     </tr>
@@ -38,6 +39,7 @@
             <td>@item.PUBLISHER</td>
             <td>@item.PAGE</td>
             <td>@item.STATUS</td>
+            <td>@item.BOOKIMAGE</td>
             <td><a href="/Book/BookDelete/@item.ID" class="btn btn-danger">Delete</a></td>
             <td><a href="/Book/BookGet/@item.ID" class="btn btn-success">Update</a></td>
         </tr>
