@@ -31,7 +31,6 @@ namespace LibraryManagementSystem.Controllers
             {
                 return View();
             }
-            return View(infos);
         }
     }
 }

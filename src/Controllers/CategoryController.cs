@@ -23,6 +23,7 @@ namespace LibraryManagementSystem.Controllers
         [HttpPost]
         public ActionResult CategoryAdd(CATEGORY c)
         {
+            c.STATUS = true;
             db.CATEGORY.Add(c);
             db.SaveChanges();
             return View();
