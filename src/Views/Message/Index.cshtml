@@ -1,32 +1,4 @@
-﻿@*@using LibraryManagementSystem.Models.Entity
-@model List<MESSAGE>
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
-}
-
-<h2>Messages Page</h2>
-
-<br />
-<table class="table table-bordered">
-    <tr>
-        <th>SENDER</th>
-        <th>SUBJECT</th>
-        <th>TEXT</th>
-        <th>DATE</th>
-    </tr>
-    @foreach (var x in Model)
-    {
-        <tr>
-            <td>@x.SENDER</td>
-            <td>@x.SUBJECT</td>
-            <td>@x.TEXT</td>
-            <td>@x.DATE</td>
-        </tr>
-    }
-</table>*@
-
-@using LibraryManagementSystem.Models.Entity
+﻿@using LibraryManagementSystem.Models.Entity
 @model List<MESSAGE>
 
 @{
@@ -221,55 +193,7 @@ Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 
                     </div>
 
-                    <!-- /.card-body -->
-
-                    <!--<div class="card-footer p-0">
-
-                        <div class="mailbox-controls">-->
-
-                            <!-- Check all button -->
-
-                            <!--<button type="button" class="btn btn-default btn-sm checkbox-toggle">
-
-                                <i class="far fa-square"></i>
-
-                            </button>
-
-                            <div class="btn-group">
-
-                                <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
-
-                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
-
-                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
-
-                            </div>-->
-
-                            <!-- /.btn-group -->
-
-                            <!--<button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
-
-                            <div class="float-right">
-
-                                1-50/200
-
-                                <div class="btn-group">
-
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
-
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
-
-                                </div>-->
-
-                                <!-- /.btn-group -->
-
-                            <!--</div>-->
-
-                            <!-- /.float-right -->
-
-                        <!--</div>
-
-                    </div>-->
+               
 
                 </div>
 
@@ -288,19 +212,6 @@ Layout = "~/Views/Shared/_LayoutPanel.cshtml";
     <!-- /.content -->
     <!-- /.content-wrapper -->
 
-    @*<footer class="main-footer">
-
-        <div class="float-right d-none d-sm-block">
-
-            <b>Version</b> 3.0.4
-
-        </div>
-
-        <strong>Copyright &copy; 2014-2019 <a href="<http://adminlte.io>">AdminLTE.io</a>.</strong> All rights
-
-        reserved.
-
-    </footer>*@
 
     <!-- Control Sidebar -->
 
