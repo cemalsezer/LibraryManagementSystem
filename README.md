@@ -3,6 +3,11 @@
 
 Bu proje, kütüphanelerin kitap, kullanıcı ve kategori yönetimi gibi temel operasyonlarını dijitalleştirerek kolaylaştırmayı amaçlayan bir **MVC tabanlı web uygulamasıdır**.
 
+## 🌟 Demo ve GitHub Bağlantıları
+
+- **Live**: [http://librarymanagement.somee.com/ShowCase/Index/](http://librarymanagement.somee.com/ShowCase/Index/)  
+- **GitHub**: [https://github.com/cemalsezer/LibraryManagementSystem](https://github.com/cemalsezer/LibraryManagementSystem)
+
 ---
 
 ## 🎯 Proje Özellikleri
@@ -63,9 +68,3 @@ Bu proje, kütüphanelerin kitap, kullanıcı ve kategori yönetimi gibi temel o
 
 ---
 
-## 🌟 Demo ve GitHub Bağlantıları
-
-- **Live**: [http://librarymanagement.somee.com/ShowCase/Index/](http://librarymanagement.somee.com/ShowCase/Index/)  
-- **GitHub**: [https://github.com/cemalsezer/LibraryManagementSystem](https://github.com/cemalsezer/LibraryManagementSystem)
-
----
