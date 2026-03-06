@@ -7,6 +7,7 @@ Bu proje, kütüphanelerin kitap, kullanıcı ve kategori yönetimi gibi temel o
 
 - **Live**: [http://librarymanagement.somee.com/ShowCase/Index/](http://librarymanagement.somee.com/ShowCase/Index/)  
 - **GitHub**: [https://github.com/cemalsezer/LibraryManagementSystem](https://github.com/cemalsezer/LibraryManagementSystem)
+* **Youtube: https://www.youtube.com/watch?v=bGriGE1zV3U
 
 ---
 
